@@ -107,7 +107,7 @@
     "id": 15,
     "module": "daemon",
     "item": "address",
-    "item_value": "127.0.0.1",
+    "item_value": "monerod",
     "item_type": "string",
     "Item_desc": "Monero Daemon RPC IP"
   },
@@ -115,7 +115,7 @@
     "id": 16,
     "module": "daemon",
     "item": "port",
-    "item_value": "18081",
+    "item_value": "18089",
     "item_type": "int",
     "Item_desc": "Monero Daemon RPC Port"
   },

@@ -9,6 +9,14 @@
     "mixIn": 4,
     "shortCode": "XMR"
   },
+  "tari": {
+    "funcFile": "./lib/coins/tari.js",
+    "paymentFile": "./payment_systems/tari.js",
+    "sigDigits": 1000000000000,
+    "name": "Tari",
+    "mixIn": 4,
+    "shortCode": "XTR"
+  },
   "krb": {
     "funcFile": "./lib/coins/krb.js",
     "paymentFile": "./payment_systems/krb.js",

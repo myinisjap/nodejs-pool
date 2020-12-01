@@ -1,6 +1,5 @@
-CREATE DATABASE pool;
-GRANT ALL ON pool.* TO pool@`127.0.0.1` IDENTIFIED BY '98erhfiuehw987fh23d';
-GRANT ALL ON pool.* TO pool@localhost IDENTIFIED BY '98erhfiuehw987fh23d';
+CREATE DATABASE IF NOT EXISTS pool;
+GRANT ALL ON pool.* TO pool@'%';
 FLUSH PRIVILEGES;
 USE pool;
 ALTER DATABASE pool DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -178,7 +177,7 @@ INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES 
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('pool', 'trustPenalty', '30', 'int', 'Number of shares that must be successful to be trusted, reset to this value if trust share is broken');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('pool', 'retargetTime', '60', 'int', 'Time between difficulty retargets');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('daemon', 'address', 'monerod', 'string', 'Monero Daemon RPC IP');
-INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('daemon', 'port', '18081', 'int', 'Monero Daemon RPC Port');
+INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('daemon', 'port', '18089', 'int', 'Monero Daemon RPC Port');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('wallet', 'address', '127.0.0.1', 'string', 'Monero Daemon RPC Wallet IP');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('wallet', 'port', '18082', 'int', 'Monero Daemon RPC Wallet Port');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('rpc', 'https', 'false', 'bool', 'Enable RPC over SSL');
