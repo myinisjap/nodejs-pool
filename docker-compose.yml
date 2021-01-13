@@ -94,7 +94,7 @@ services:
       - DB_PASS=password
       - ROOT_SQL_PASS=password
       - HOSTNAME=xmrpool.test
-      - COIN=xmr
+      - COIN=tari
 
   pool-web:
     image: pool-web
@@ -107,8 +107,8 @@ services:
         # Can set these in your hosts file when testing
         - API_HOSTNAME=api.xmrtaripool.test
         - WEB_HOSTNAME=xmrtaripool.test
-    depends_on:
-      - pool-backend
+#    depends_on:
+#      - pool-backend
     ports:
       - 80:80
       - 443:443

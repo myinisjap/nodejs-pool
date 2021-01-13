@@ -574,5 +574,13 @@
     "item_value": "0",
     "item_type": "int",
     "Item_desc": "Number of blocks assumed before the payout unlocks."
+  },
+  {
+    "id": 78,
+    "module": "general",
+    "item": "stagenet",
+    "item_value": "false",
+    "item_type": "bool",
+    "Item_desc": "Does this pool use stagenet?"
   }
 ]
