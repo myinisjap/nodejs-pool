@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 enum POOLTYPE {
     PPLNS = 0;
     PPS = 1;
@@ -54,6 +56,7 @@ message Block {
     required bool valid = 7;
     optional int64 value = 8;
     optional bool pay_ready = 9;
+    map<string, bytes> extra = 10;
 }
 
 message AltBlock {

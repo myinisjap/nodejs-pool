@@ -1,6 +1,7 @@
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc)
 VALUES ('wallet', 'grpcAddress', '127.0.0.1', 'string', 'IP address of the Wallet GRPC endpoint'),
-       ('wallet', 'grpcPort', '18181', 'int', 'Port of the Wallet GRPC endpoint');
+       ('wallet', 'grpcPort', '18181', 'int', 'Port of the Wallet GRPC endpoint'),
+       ('general', 'network', 'mainnet', 'string', 'Monero network (mainnet, stagenet, testnet)');
 
 CREATE TABLE `pending_payouts`
 (
@@ -27,3 +28,5 @@ ALTER TABLE `balance`
     ADD COLUMN `locked` SMALLINT(1) NOT NULL DEFAULT 0,
     CHANGE COLUMN `payment_address` `payment_address` VARCHAR(256);
 
+ALTER TABLE `block_balance`
+    CHANGE COLUMN `payment_address` `payment_address` VARCHAR(256);

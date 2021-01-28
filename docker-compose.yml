@@ -84,8 +84,8 @@ services:
       - database
       - web-proxy
     environment:
-      # - ENABLED_DAEMONS=blockManager
-      - ENABLED_DAEMONS=api,remoteShare,pool,longRunner,blockManager,worker
+      - ENABLED_DAEMONS=blockManager,remoteShare
+      # - ENABLED_DAEMONS=api,remoteShare,pool,longRunner,blockManager,worker
       # - ENABLED_DAEMONS=api,remoteShare,pool,longRunner,payments,blockManager,worker
       - DB_HOST=db
       - DB_PORT=3306
@@ -95,6 +95,7 @@ services:
       - ROOT_SQL_PASS=password
       - HOSTNAME=xmrtaripool.test
       - COIN=xtr
+      - DEBUG=coinFuncs
 
   pool-web:
     image: pool-web
