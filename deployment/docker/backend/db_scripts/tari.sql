@@ -29,4 +29,5 @@ ALTER TABLE `balance`
     CHANGE COLUMN `payment_address` `payment_address` VARCHAR(256);
 
 ALTER TABLE `block_balance`
-    CHANGE COLUMN `payment_address` `payment_address` VARCHAR(256);
+    CHANGE COLUMN `payment_address` `payment_address` VARCHAR(256),
+    ADD COLUMN `coin` VARCHAR(32);

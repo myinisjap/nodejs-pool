@@ -1,3 +1,4 @@
 # Ignored to reduce changed file lines
 lib/pool_stats.js
 lib/remoteShare.js
+./manage_scripts
