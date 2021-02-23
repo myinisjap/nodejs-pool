@@ -26,8 +26,10 @@ CREATE TABLE `pending_payouts`
 
 ALTER TABLE `balance`
     ADD COLUMN `locked` SMALLINT(1) NOT NULL DEFAULT 0,
-    CHANGE COLUMN `payment_address` `payment_address` VARCHAR(256);
+    CHANGE COLUMN `payment_address` `payment_address` VARCHAR(256),
+    ADD COLUMN `coin` VARCHAR(32) NOT NULL;
 
 ALTER TABLE `block_balance`
     CHANGE COLUMN `payment_address` `payment_address` VARCHAR(256),
     ADD COLUMN `coin` VARCHAR(32);
+
