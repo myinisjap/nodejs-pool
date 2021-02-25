@@ -13,7 +13,7 @@
   "author": "Multiple",
   "license": "MIT",
   "dependencies": {
-    "@tari/wallet-grpc-client": "git://github.com/tari-project/tari-wallet-grpc-client.git#c961bdf0107ff464566382f200c194ecbe976893",
+    "@tari/wallet-grpc-client": "git://github.com/tari-project/tari-wallet-grpc-client.git#e9e3d33985bfd011c6255622efcc361120f06ccb",
     "apicache": "1.2.1",
     "async": "3.2.0",
     "bignum": "^0.13.1",
