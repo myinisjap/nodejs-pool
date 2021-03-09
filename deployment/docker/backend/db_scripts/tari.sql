@@ -12,7 +12,7 @@ CREATE TABLE `pending_payouts`
     `payment_address` varchar(128)    NOT NULL,
     `payment_id`      varchar(128)             DEFAULT NULL,
     `amount`          bigint unsigned NOT NULL DEFAULT 0,
-    `status`          ENUM('pending', 'error', 'complete') NOT NULL DEFAULT 'pending',
+    `status`          ENUM('pending', 'error', 'complete', 'cancelled') NOT NULL DEFAULT 'pending',
     `last_checked_at` timestamp,
     `created_at`      timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
