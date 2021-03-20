@@ -8,6 +8,10 @@ services:
       - monero-data:/home/monero/.bitmonero
     build:
       context: ./deployment/docker/monerod
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   monerod:
     container_name: pool-monerod
@@ -35,7 +39,10 @@ services:
       - "--public-node"
       - "--limit-rate-up=1024"
       - "--limit-rate-down=2048"
-      - "--stagenet"
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   db:
     image: mysql:5.7
@@ -58,6 +65,10 @@ services:
       - backend-db:/var/lib/mysql
     networks:
       - database
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   pool-backend:
     image: nodejs-pool
@@ -84,17 +95,19 @@ services:
       - database
       - web-proxy
     environment:
-      # - ENABLED_DAEMONS=blockManager
-      # - ENABLED_DAEMONS=api,remoteShare,pool,longRunner,payments,blockManager
-      - ENABLED_DAEMONS=api,remoteShare,pool,longRunner,payments,blockManager,worker
+      - ENABLED_DAEMONS=api,remoteShare,pool,longRunner,payments,blockManager,worker,walletRpc
       - DB_HOST=db
       - DB_PORT=3306
       - DB_NAME=pool
       - DB_USER=pool
       - DB_PASS=password
       - ROOT_SQL_PASS=password
-      - HOSTNAME=xmrpool.test
+      - HOSTNAME=poolserver
       - COIN=xmr
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   pool-web:
     image: pool-web
@@ -105,8 +118,7 @@ services:
       - ./deployment/docker/web/templates/:/etc/nginx/templates
     environment:
         # Can set these in your hosts file when testing
-        - API_HOSTNAME=api.xmrtaripool.test
-        - WEB_HOSTNAME=xmrtaripool.test
+        - WEB_HOSTNAME=poolserver
     depends_on:
       - pool-backend
     ports:
@@ -114,6 +126,10 @@ services:
       - 443:443
     networks:
       - web-proxy
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 volumes:
   backend-db:
