@@ -35,3 +35,7 @@ apps:
     script: init.js
     args: "--module=worker"
 
+  - name: walletRpc
+    log_date_format: "YYYY-MM-DD HH:mm Z"
+    script: /monero/monero-wallet-rpc
+    args: "--config-file /home/pool/pool/deployment/docker/backend/monero_rpc.conf"

@@ -14,21 +14,13 @@ server {
     root /www;
     index index.html index.htm;
   }
-}
 
+  location /leafApi/ {
+      proxy_pass  http://remoteShare;
+    }
 
-server {
-  listen        80;
-  server_name   ${API_HOSTNAME};
-
-  location /leafApi {
-    proxy_pass  http://remoteShare;
-  }
-
-  location / {
-    proxy_pass  http://poolApi;
+  location /api/ {
+      proxy_pass http://poolApi/;
   }
 
 }
-
-

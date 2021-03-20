@@ -41,8 +41,6 @@ if [[ "$RESULT" == "0" ]]; then
   exec_sql "CREATE USER IF NOT EXISTS pool@'%' IDENTIFIED BY '$DB_USER';";
   exec_sql "FLUSH PRIVILEGES;"
   mysql -u root --password=$ROOT_SQL_PASS -h ${DB_HOST} < deployment/docker/api/base.sql
-  exec_sql "INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('api', 'authKey', '`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`', 'string', 'Auth key sent with all Websocket frames for validation.')"
-  exec_sql "INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('api', 'secKey', '`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`', 'string', 'HMAC key for Passwords.  JWT Secret Key.  Changing this will invalidate all current logins.')"
 else
   echo "+ Pool database already setup"
 fi
